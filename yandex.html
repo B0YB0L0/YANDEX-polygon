@@ -1,0 +1,72 @@
+<!DOCTYPE HTML> 
+<head> 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Bu qator Tailwind CSS-ni yuklaydi, bu CSS framework veb sahifani tartibga solish uchun ishlatiladi. -->
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+          /* Bu qismda butun HTML hujjat va body uchun margin va padding 0 ga o'rnatilgan, hamda kenglik va balandlik 100% qilib belgilangan.   */
+
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+         /* Bu qismda "map" ID ga ega elementning kengligi va balandligi 100% qilib o'rnatilgan.   */
+    </style>
+</head>
+<body>
+<div layout:fragment="content" style="height: 80vh; width: 100%;">
+    <!-- Bu div `content` layout fragmentini ifodalaydi va uning kengligi 100%, balandligi esa 80vh qilib o'rnatilgan. -->
+
+    <div style="height: 100%">
+        <!-- Bu div "height: 100%" uslubida, ya'ni uning balandligi ota elementining 100% ini egallaydi. -->
+
+        <div>
+            <div style="height: 80vh; width: 100%;">
+                <!-- Bu div ham balandligi 80vh va kengligi 100% bo'lgan holatda uslublangan. -->
+
+                <div class="grid grid-cols-4 gap-4" style="height: 80vh; width: 100%;">
+                    <!-- Bu div Tailwind CSS yordamida to'rt ustunli grid qilib o'rnatilgan va elementlar orasidagi masofa "gap-4" bilan belgilangan. Balandligi 80vh va kengligi 100%. -->
+
+                    <div class="md:mb-10 col-span-1">
+                        <!-- Bu div bir ustunli kenglikni egallaydi va md ekran o'lchamida pastki margin 10px bo'ladi. -->
+
+                        <h1 class="text-lg font-bold mb-4">Xaritadan maydon tanlang</h1>
+                        <!-- Bu sarlavha text-lg (katta matn), font-bold (qalin yozilgan) va mb-4 (4px pastki margin) bilan uslublangan. -->
+
+                        <form class="relative w-full max-w-md" th:method="POST">
+                            <!-- Bu form elementning kengligi to'liq bo'lib, maksimal kengligi md o'lchamida o'rnatilgan. Form POST metodi bilan ishlaydi. -->
+
+                            <div class="mb-1">
+                                <label for="polygonCoordinates" class="block text-sm font-medium text-gray-700">Polygon Coordinates</label>
+                                <!-- Label elementi kichik matnda (text-sm) va o'rta og'irlikdagi shrift (font-medium) bilan uslublangan, rangi esa text-gray-700 (kulrang). -->
+
+                                <input type="text" id="polygonCoordinates" name="polygonCoordinates"
+                                       class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                       readonly>
+                                <!-- Bu input element, matn kiritish uchun mo'ljallangan. U readonly rejimida, ya'ni foydalanuvchi tomonidan tahrirlanmaydi. Kengligi to'liq va border-gray-300 bilan uslublangan. Shuningdek, fokusda indigo rangida ko'rinishga ega. -->
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-span-3" style="width: 100%">
+                        <!-- Bu div uch ustun kenglikni egallaydi va kengligi 100% ga teng. -->
+
+                        <div id="map"></div>
+                        <!-- Bu element xaritani ko'rsatish uchun ishlatiladi va "map" ID bilan belgilangan. -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://api-maps.yandex.ru/2.1/?apikey=2e7cad27-1966-484e-bc9b-0cb482946535&lang=en_US"
+                type="text/javascript"></script>
+        <!-- Bu qator Yandex Maps API-ni yuklaydi va xarita funksiyalaridan foydalanish imkonini beradi. -->
+    </div>
+</div>
+</body>
+</html>
